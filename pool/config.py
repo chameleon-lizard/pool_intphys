@@ -15,7 +15,11 @@ def set_max_resolution():
     global resolution
     global white_ball_initial_pos
     resolution = np.array([infoObject.current_w, infoObject.current_h])
-    white_ball_initial_pos = (resolution + [table_margin + hole_radius, 0]) * [0.25, 0.5]
+    white_ball_initial_pos = (resolution + [table_margin + hole_radius, 0]) * [
+        0.25,
+        0.5,
+    ]
+
 
 # window settings
 fullscreen = False
@@ -30,17 +34,29 @@ table_margin = 40
 table_side_color = (200, 200, 0)
 table_color = (0, 100, 0)
 separation_line_color = (200, 200, 200)
-hole_radius = 22
-middle_hole_offset = np.array([[-hole_radius * 2, hole_radius], [-hole_radius, 0],
-                               [hole_radius, 0], [hole_radius * 2, hole_radius]])
-side_hole_offset = np.array([
-    [- 2 * math.cos(math.radians(45)) * hole_radius - hole_radius, hole_radius],
-    [- math.cos(math.radians(45)) * hole_radius, -
-    math.cos(math.radians(45)) * hole_radius],
-    [math.cos(math.radians(45)) * hole_radius,
-     math.cos(math.radians(45)) * hole_radius],
-    [- hole_radius, 2 * math.cos(math.radians(45)) * hole_radius + hole_radius]
-])
+hole_radius = 0
+middle_hole_offset = np.array(
+    [
+        [-hole_radius * 2, hole_radius],
+        [-hole_radius, 0],
+        [hole_radius, 0],
+        [hole_radius * 2, hole_radius],
+    ]
+)
+side_hole_offset = np.array(
+    [
+        [-2 * math.cos(math.radians(45)) * hole_radius - hole_radius, hole_radius],
+        [
+            -math.cos(math.radians(45)) * hole_radius,
+            -math.cos(math.radians(45)) * hole_radius,
+        ],
+        [
+            math.cos(math.radians(45)) * hole_radius,
+            math.cos(math.radians(45)) * hole_radius,
+        ],
+        [-hole_radius, 2 * math.cos(math.radians(45)) * hole_radius + hole_radius],
+    ]
+)
 
 # cue settings
 player1_cue_color = (200, 100, 0)
@@ -76,7 +92,7 @@ ball_colors = [
     (200, 0, 200),
     (200, 0, 0),
     (50, 0, 0),
-    (100, 0, 0)
+    (100, 0, 0),
 ]
 ball_stripe_thickness = 5
 ball_stripe_point_num = 25
@@ -85,8 +101,11 @@ ball_stripe_point_num = 25
 ball_starting_place_ratio = [0.75, 0.5]
 # in fullscreen mode the resolution is only available after initialising the screen
 # and if the screen wasn't initialised the resolution variable won't exist
-if 'resolution' in locals():
-    white_ball_initial_pos = (resolution + [table_margin + hole_radius, 0]) * [0.25, 0.5]
+if "resolution" in locals():
+    white_ball_initial_pos = (resolution + [table_margin + hole_radius, 0]) * [
+        0.25,
+        0.5,
+    ]
 ball_label_text_size = 10
 
 # physics
@@ -112,8 +131,8 @@ exit_button = 2
 play_game_button = 1
 
 # in-game ball target variables
-player1_target_text = 'P1 balls - '
-player2_target_text = 'P2 balls - '
+player1_target_text = "P1 balls - "
+player2_target_text = "P2 balls - "
 target_ball_spacing = 3
 player1_turn_label = "Player 1 turn"
 player2_turn_label = "Player 2 turn"
